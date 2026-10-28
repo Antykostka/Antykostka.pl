@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>reset. — Odpocznij. Zregeneruj się.</title>
+<meta name="description" content="Poznaj proste sposoby na lepszy sen, więcej energii i spokojniejszy dzień.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #FFFCF8;
+  --terracotta: #C96F4A;
+  --terracotta-dark: #A85331;
+  --cream: #FFF2E5;
+  --text: #30251F;
+  --muted: #6E5D54;
+  --glass: rgba(255, 252, 248, 0.85);
+  --border: rgba(201, 111, 74, 0.2);
+  --shadow: 0 18px 55px rgba(48, 37, 31, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(ellipse at 5% 5%, rgba(201, 111, 74, 0.10), transparent 40%),
+    radial-gradient(ellipse at 95% 35%, rgba(255, 242, 229, 0.80), transparent 35%);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+.container { width: min(1120px, 90%); margin: auto; }
+
+/* PŁYWAJĄCY PASEK LIQUID GLASS */
+.nav-wrap {
+  position: fixed;
+  top: 17px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 0 5%;
+}
+
+nav {
+  max-width: 1120px;
+  margin: auto;
+  min-height: 68px;
+  padding: 12px 18px 12px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  box-shadow: 0 8px 35px rgba(48, 37, 31, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.logo { font-size: 26px; font-weight: 800; letter-spacing: -1.8px; color: var(--text); }
+.logo span { color: var(--terracotta); }
+
+.nav-links { display: flex; align-items: center; gap: 29px; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--terracotta); }
+
+.nav-cta, .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border-radius: 15px;
+  color: #FFF2E5;
+  background: linear-gradient(135deg, #D9805B, #C96F4A);
+  box-shadow: 0 7px 20px rgba(201, 111, 74, 0.28);
+  font-size: 13px;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.nav-cta:hover, .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(201, 111, 74, 0.38);
+}
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 27px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  min-height: 760px;
+  padding: 155px 0 90px;
+  display: flex;
+  align-items: center;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.04fr .96fr;
+  gap: 65px;
+  align-items: center;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--terracotta-dark);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  box-shadow: 0 5px 20px rgba(48, 37, 31, 0.04);
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  box-shadow: 0 0 0 4px rgba(201, 111, 74, 0.2);
+}
+.hero h1 { font-size: clamp(48px, 5.7vw, 76px); margin-bottom: 25px; color: var(--text); }
+.gradient-text {
+  color: var(--terracotta);
+  background: linear-gradient(100deg, #C96F4A, #E08B67);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-copy {
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 480px;
+  margin-bottom: 30px;
+}
+.hero-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; }
+.button.secondary {
+  color: var(--text);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+.button.secondary:hover { box-shadow: var(--shadow); background: #FFE8D6; }
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 35px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.avatars { display: flex; }
+.avatars span {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  margin-left: -6px; border: 2px solid var(--bg);
+  background: var(--cream); font-size: 13px;
+}
+.avatars span:first-child { margin-left: 0; }
+
+.hero-visual { position: relative; min-width: 0; }
+.hero-image {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 42px;
+  box-shadow: 0 28px 70px rgba(48, 37, 31, 0.15);
+  display: block;
+}
+.image-glass {
+  position: absolute;
+  bottom: 24px;
+  left: -30px;
+  width: 230px;
+  padding: 18px;
+  background: rgba(255, 252, 248, 0.90);
+  backdrop-filter: blur(22px);
+  border: 1px solid var(--border);
+  border-radius: 23px;
+  box-shadow: var(--shadow);
+}
+.image-glass .small { color: var(--muted); font-size: 11px; }
+.image-glass strong { display: block; font-size: 18px; margin: 4px 0; color: var(--text); }
+.moon { font-size: 23px; }
+
+/* WSPÓLNE SEKCJE */
+section { padding: 95px 0; }
+.section-head { max-width: 650px; margin: 0 auto 48px; text-align: center; }
+.kicker {
+  color: var(--terracotta);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+.section-head h2 { font-size: clamp(34px, 4vw, 49px); margin-bottom: 17px; color: var(--text); }
+.section-head p { color: var(--muted); font-size: 15px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: -15px;
+}
+.stat {
+  padding: 25px;
+  text-align: center;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+}
+.stat strong { display: block; color: var(--terracotta-dark); font-size: 27px; font-family: 'Manrope'; }
+.stat span { color: var(--muted); font-size: 12px; }
+
+/* KARTY */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 23px;
+}
+.card {
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 10px 40px rgba(48, 37, 31, 0.04);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover { transform: translateY(-7px); box-shadow: var(--shadow); }
+.card img { width: 100%; height: 220px; display: block; object-fit: cover; }
+.card-content { padding: 24px; }
+.card-number {
+  color: var(--terracotta);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.card h3 { font-size: 22px; margin: 10px 0 12px; color: var(--text); }
+.card p { color: var(--muted); font-size: 14px; }
+.card-link { display: inline-block; margin-top: 18px; color: var(--terracotta-dark); font-weight: 700; font-size: 13px; }
+
+/* CYTAT */
+.quote-section { padding: 25px 0 95px; }
+.quote-box {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 55px 8%;
+  border-radius: 35px;
+  color: var(--cream);
+  background:
+    linear-gradient(90deg, rgba(48, 37, 31, 0.88), rgba(74, 53, 42, 0.65)),
+    url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85') center/cover;
+}
+.quote-box > div { max-width: 700px; }
+.quote-mark { font-family: Georgia, serif; font-size: 65px; line-height: .9; opacity: .8; color: var(--terracotta); }
+.quote-box h2 { font-size: clamp(28px, 4vw, 43px); margin: 15px 0; color: #FFF2E5; }
+.quote-box p { color: rgba(255,242,229,.85); font-size: 14px; }
+
+/* WIECZORNA RUTYNA */
+.routine-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 65px;
+  align-items: center;
+}
+.routine-image {
+  width: 100%; height: 480px; object-fit: cover;
+  border-radius: 32px; box-shadow: var(--shadow);
+}
+.routine-content h2 { font-size: clamp(34px, 4vw, 46px); margin-bottom: 18px; color: var(--text); }
+.routine-content > p { color: var(--muted); margin-bottom: 30px; }
+.timeline { display: grid; gap: 19px; }
+.timeline-item { display: grid; grid-template-columns: 60px 1fr; gap: 17px; align-items: start; }
+.time {
+  background: var(--cream); color: var(--terracotta-dark);
+  border: 1px solid var(--border);
+  border-radius: 13px; padding: 10px 4px;
+  text-align: center; font-size: 12px; font-weight: 800;
+}
+.timeline-item h3 { font-size: 16px; letter-spacing: -.3px; margin: 2px 0 5px; color: var(--text); }
+.timeline-item p { font-size: 13px; color: var(--muted); }
+
+/* CHECKLISTA */
+.checklist-section { padding-top: 50px; }
+.checklist-box {
+  max-width: 780px; margin: auto; padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  background: rgba(255, 252, 248, 0.9);
+  box-shadow: var(--shadow);
+}
+.checklist-box h2 { font-size: 32px; margin-bottom: 10px; color: var(--text); }
+.checklist-box > p { color: var(--muted); font-size: 14px; margin-bottom: 25px; }
+.check-list { display: grid; gap: 12px; }
+.check-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border: 1px solid var(--border);
+  background: var(--cream); border-radius: 15px;
+  cursor: pointer; transition: .2s;
+}
+.check-item:hover { border-color: var(--terracotta); }
+.check-item input {
+  width: 19px; height: 19px; accent-color: var(--terracotta);
+  cursor: pointer; flex-shrink: 0;
+}
+.check-item span { font-size: 14px; color: var(--text); }
+.check-item:has(input:checked) { background: #FFE8D6; }
+.check-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+.progress-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 10px; font-size: 12px; font-weight: 700; color: var(--text); }
+.progress-track { width: 100%; height: 8px; border-radius: 20px; background: rgba(201, 111, 74, 0.15); overflow: hidden; margin-bottom: 22px; }
+.progress-fill { width: 0%; height: 100%; border-radius: 20px; background: linear-gradient(90deg, #E08B67, #C96F4A); transition: width .3s; }
+.progress-message { margin-top: 16px; min-height: 25px; font-size: 13px; color: var(--terracotta-dark); font-weight: 600; }
+
+/* ZAKOŃCZENIE */
+.final-cta { padding: 45px 0 95px; }
+.final-box {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: space-between; gap: 30px;
+  padding: 55px;
+  border-radius: 32px;
+  background: linear-gradient(125deg, #FFF2E5, #FFE3D1 65%, #FFFCF8);
+  border: 1px solid var(--border);
+}
+.final-box h2 { font-size: clamp(30px, 4vw, 43px); max-width: 500px; margin-bottom: 13px; color: var(--text); }
+.final-box p { color: var(--muted); font-size: 14px; max-width: 470px; }
+.final-decoration { font-size: 90px; opacity: .8; flex-shrink: 0; }
+
+footer { padding: 28px 0; border-top: 1px solid var(--border); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+footer p, footer a { color: var(--muted); font-size: 12px; }
+.footer-links { display: flex; gap: 20px; }
+
+/* ANIMACJE */
+.reveal { animation: appear .8s both; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* TELEFONY I TABLETY */
+@media (max-width: 850px) {
+  .nav-links {
+    display: none; position: absolute; top: 78px; left: 5%; right: 5%;
+    padding: 20px; border-radius: 22px;
+    background: rgba(255, 252, 248, 0.98); backdrop-filter: blur(20px);
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+    flex-direction: column; align-items: stretch; gap: 18px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 15px; padding: 4px; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: block; }
+  .hero { min-height: auto; padding-top: 145px; }
+  .hero-grid, .routine-layout { grid-template-columns: 1fr; gap: 42px; }
+  .hero-visual { max-width: 600px; margin: auto; width: 100%; }
+  .hero-image { height: 400px; }
+  .image-glass { left: 12px; bottom: 15px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .cards .card:last-child { grid-column: 1 / -1; }
+  .routine-image { height: 360px; }
+  .routine-content { order: -1; }
+  .final-box { padding: 35px; }
+}
+@media (max-width: 560px) {
+  .container { width: 90%; }
+  .nav-wrap { top: 10px; padding: 0 4%; }
+  nav { min-height: 60px; padding: 10px 17px; border-radius: 20px; }
+  .logo { font-size: 24px; }
+  .hero { padding: 120px 0 65px; }
+  .hero h1 { font-size: 46px; }
+  .hero-copy { font-size: 15px; }
+  .hero-image { height: 320px; border-radius: 27px; }
+  .image-glass { width: 205px; padding: 14px; }
+  section { padding: 65px 0; }
+  .section-head { margin-bottom: 30px; }
+  .stats { gap: 9px; }
+  .stat { padding: 17px 7px; border-radius: 16px; }
+  .stat strong { font-size: 21px; }
+  .stat span { font-size: 10px; }
+  .cards { grid-template-columns: 1fr; }
+  .cards .card:last-child { grid-column: auto; }
+  .card img { height: 210px; }
+  .quote-section { padding-bottom: 60px; }
+  .quote-box { min-height: 300px; padding: 35px 22px; border-radius: 25px; }
+  .routine-image { height: 290px; }
+  .checklist-box { padding: 23px 17px; border-radius: 22px; }
+  .checklist-box h2 { font-size: 27px; }
+  .check-item { padding: 12px; }
+  .check-item span { font-size: 13px; }
+  .final-box { padding: 28px 22px; }
+  .final-decoration { display: none; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav-wrap">
+  <nav aria-label="Menu główne">
+    <a href="#start" class="logo">reset<span>.</span></a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#dlaczego">Dlaczego sen?</a>
+      <a href="#nawyki">Dobre nawyki</a>
+      <a href="#rutyna">Wieczorna rutyna</a>
+      <a href="#checklista">Twoja checklista</a>
+    </div>
+
+    <a class="nav-cta" href="#checklista">Zacznij od dziś <span>↗</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false">☰</button>
+  </nav>
+</div>
+
+<main>
+  <section class="hero" id="start">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span> MAŁE ZMIANY, LEPSZY DZIEŃ</div>
+        <h1>Twój dzień<br>zaczyna się<br>od <span class="gradient-text">odpoczynku.</span></h1>
+        <p class="hero-copy">
+          Nie musisz zmieniać całego życia w jeden dzień.
+          Zacznij od snu, chwili spokoju i kilku dobrych nawyków.
+          Twoja głowa też potrzebuje przerwy.
+        </p>
+        <div class="hero-buttons">
+          <a href="#nawyki" class="button">Poznaj dobre nawyki <span>↗</span></a>
+          <a href="#dlaczego" class="button secondary">Dowiedz się więcej</a>
+        </div>
+        <div class="hero-note">
+          <div class="avatars"><span>☁️</span><span>🌙</span><span>🌿</span></div>
+          <span>Trochę spokoju. Trochę lepszego snu. Więcej energii.</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <img class="hero-image"
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85"
+          alt="Spokojny krajobraz o poranku">
+        <div class="image-glass">
+          <span class="moon">☾</span>
+          <div class="small">TWOJE MAŁE PRZYPOMNIENIE</div>
+          <strong>Możesz zwolnić.</strong>
+          <div class="small">Odpoczynek też jest ważny.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats" id="dlaczego">
+    <div class="stat"><strong>8–10 h</strong><span>zalecany sen dla nastolatków</span></div>
+    <div class="stat"><strong>Małe kroki</strong><span>łatwiej utrzymać niż wielkie zmiany</span></div>
+    <div class="stat"><strong>Każdy dzień</strong><span>to nowa szansa na lepszy nawyk</span></div>
+  </div>
+
+  <section id="nawyki">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Zacznij od podstaw</div>
+        <h2>Trzy rzeczy, które robią różnicę.</h2>
+        <p>Nie potrzebujesz idealnej rutyny ani drogich gadżetów. Wystarczy kilka prostych rzeczy, które możesz wprowadzić we własnym tempie.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80"
+            alt="Zielony las i promienie światła" loading="lazy">
+          <div class="card-content">
+            <div class="card-number">01 / RUCH I ŚWIATŁO</div>
+            <h3>Wyjdź na chwilę.</h3>
+            <p>Krótki spacer i światło dzienne pomagają uporządkować rytm dnia. Nie musi to być trening ani wyprawa na drugi koniec świata.</p>
+            <a class="card-link" href="#rutyna">Jak zacząć? ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=85"
+            alt="Przytulne wnętrze i spokojna przestrzeń" loading="lazy">
+          <div class="card-content">
+            <div class="card-number">02 / MNIEJ EKRANU</div>
+            <h3>Daj głowie odetchnąć.</h3>
+            <p>Powiadomienia mogą poczekać. Odłóż telefon przed snem i zamień przewijanie ekranu na muzykę, książkę albo spokojną rozmowę.</p>
+            <a class="card-link" href="#rutyna">Jak zacząć? ↗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85"
+            alt="Ciepłe światło wschodzącego słońca" loading="lazy">
+          <div class="card-content">
+            <div class="card-number">03 / REGULARNOŚĆ</div>
+            <h3>Znajdź swój rytm.</h3>
+            <p>Staraj się kłaść i wstawać o podobnych porach. Regularność pomaga organizmowi przygotować się do snu i porannego startu.</p>
+            <a class="card-link" href="#rutyna">Jak zacząć? ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-box">
+        <div>
+          <div class="quote-mark">“</div>
+          <h2>Nie musisz być produktywny przez każdą minutę dnia.</h2>
+          <p>Odpoczynek nie jest nagrodą za zmęczenie. Jest normalną częścią dbania o siebie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rutyna">
+    <div class="container routine-layout">
+      <img class="routine-image"
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85"
+        alt="Spokojne jezioro otoczone górami" loading="lazy">
+
+      <div class="routine-content">
+        <div class="kicker">Zwolnij wieczorem</div>
+        <h2>Mały rytuał na spokojniejszą noc.</h2>
+        <p>Nie musisz wykonywać wszystkiego idealnie. Potraktuj ten plan jako inspirację i dopasuj go do swojej godziny snu.</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">−60 min</div>
+            <div><h3>Odłóż ekran</h3><p>Przygaś światło i ogranicz treści, które mocno Cię pobudzają.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">−40 min</div>
+            <div><h3>Przygotuj się na jutro</h3><p>Spakuj plecak, przygotuj ubrania i zapisz najważniejsze sprawy.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">−20 min</div>
+            <div><h3>Zrób coś spokojnego</h3><p>Poczytaj, posłuchaj spokojnej muzyki lub weź ciepły prysznic.</p></div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">Sen</div>
+            <div><h3>Zadbaj o swoją przestrzeń</h3><p>Przewietrz pokój, ogranicz światło i daj sobie czas na odpoczynek.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="checklist-section" id="checklista">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Twój mały plan</div>
+        <h2>Jak zadbasz o siebie dzisiaj?</h2>
+        <p>Zaznacz rzeczy, które udało Ci się zrobić. Nie chodzi o perfekcję, tylko o małe kroki.</p>
+      </div>
+
+      <div class="checklist-box">
+        <h2>Dzisiejsza checklista</h2>
+        <p>Każdy zaznaczony punkt przybliża Cię do lepszej rutyny.</p>
+
+        <div class="progress-top">
+          <span>Twój postęp</span>
+          <span id="progressText">0 z 5</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+        <div class="check-list">
+          <label class="check-item"><input type="checkbox"><span>Spędzę trochę czasu na świeżym powietrzu.</span></label>
+          <label class="check-item"><input type="checkbox"><span>Wypiję odpowiednią ilość wody.</span></label>
+          <label class="check-item"><input type="checkbox"><span>Zrobię przerwę od telefonu.</span></label>
+          <label class="check-item"><input type="checkbox"><span>Przygotuję rzeczy na kolejny dzień.</span></label>
+          <label class="check-item"><input type="checkbox"><span>Postaram się położyć spać o regularnej porze.</span></label>
+        </div>
+
+        <div class="progress-message" id="progressMessage" aria-live="polite">Zacznij od jednego małego kroku.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <div class="final-box">
+        <div>
+          <div class="kicker">Na spokojnie</div>
+          <h2>Nie wszystko naraz. Zacznij od jednej rzeczy.</h2>
+          <p>Lepsze samopoczucie nie musi zaczynać się od wielkiej zmiany. Czasem wystarczy jedna spokojniejsza noc i trochę więcej troski o siebie.</p>
+          <br>
+          <a href="#checklista" class="button">Wróć do checklisty ↗</a>
+        </div>
+        <div class="final-decoration" aria-hidden="true">☁️</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a href="#start" class="logo">reset<span>.</span></a>
+    <p>Projekt edukacyjny o śnie i regeneracji nastolatków.</p>
+    <div class="footer-links">
+      <a href="#start">Początek</a>
+      <a href="#nawyki">Nawyki</a>
+      <a href="#checklista">Checklista</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menu mobilne
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  // Zamknij menu po wybraniu sekcji
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.textContent = '☰';
+    });
+  });
+
+  // Interaktywna checklista i pasek postępu
+  const checkboxes = document.querySelectorAll('.check-item input');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const progressMessage = document.getElementById('progressMessage');
+
+  function updateProgress() {
+    const total = checkboxes.length;
+    const checked = document.querySelectorAll('.check-item input:checked').length;
+    const percentage = (checked / total) * 100;
+
+    progressFill.style.width = percentage + '%';
+    progressText.textContent = checked + ' z ' + total;
+
+    if (checked === total) {
+      progressMessage.textContent = 'Świetna robota! Zrobiłeś dziś coś dobrego dla siebie.';
+    } else if (checked >= 3) {
+      progressMessage.textContent = 'Idzie Ci dobrze. Każdy mały krok ma znaczenie.';
+    } else if (checked > 0) {
+      progressMessage.textContent = 'Dobry początek. Nie musisz robić wszystkiego naraz.';
+    } else {
+      progressMessage.textContent = 'Zacznij od jednego małego kroku.';
+    }
+  }
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateProgress);
+  });
+</script>
+
+</body>
+</html>
